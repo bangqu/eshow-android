@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--标准色-->
+    <color name="color_white">#FFFFFF</color>
+    <color name="color_black">#000000</color>
+    <color name="color_blue">#2196F3</color>
+    <color name="color_gray">#59708B</color>
+    <color name="color_stroke">#CCCCCC</color>
+    <color name="button_press_2">#FFEAEAEA</color>
+    <color name="button_normal_2">#FFFFFFFF</color>
+    <color name="color_tabbg">#242424</color>
+    <color name="color_line">#DDDDDD</color>
+    <!--tab_selector-->
+    <color name="tab_edit_focused">#448AFF</color>
+    <color name="tab_edit_normal">#7E8E9F</color>
+    <color name="colorGray4">#787878</color>
+    <color name="text_black">#333333</color>
+</resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="false"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+	<item android:duration="80" android:drawable="@mipmap/gpr"  />
+	<item android:duration="80" android:drawable="@mipmap/gpq" />
+	<item android:duration="80" android:drawable="@mipmap/gpm" />
+	<item android:duration="80" android:drawable="@mipmap/gpl" />
+	<item android:duration="80" android:drawable="@mipmap/gpk" />
+	<item android:duration="80" android:drawable="@mipmap/gpj" />
+	<item android:duration="80" android:drawable="@mipmap/gpi" />
+	<item android:duration="80" android:drawable="@mipmap/gph" />
+	<item android:duration="80" android:drawable="@mipmap/gpg" />
+	<item android:duration="80" android:drawable="@mipmap/gpf" />
+	<item android:duration="80" android:drawable="@mipmap/gpo" />
+	<item android:duration="80" android:drawable="@mipmap/gpn" />
+</animation-list> 

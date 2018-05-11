@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <declare-styleable name="TextViewPlus">
+        <attr name="drawHeight" format="dimension" />
+        <attr name="drawWidth" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="RoundImageView">
+        <attr name="borderRadius" format="dimension" />
+        <attr name="type">
+            <enum name="oval" value="0" />
+            <enum name="round" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="SuperRatingBar">
+        <attr name="numStars" format="integer" />
+        <attr name="rate" format="float" />
+        <attr name="imageSize" format="dimension" />
+        <attr name="imagePadding" format="dimension" />
+        <attr name="drawableNormal" format="reference" />
+        <attr name="drawableSelected" format="reference" />
+        <attr name="rateStep" format="float" />
+        <attr name="isIndicator" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="DashedDivideLine">
+        <attr name="dashWidth" format="dimension" />
+        <attr name="solidWidth" format="dimension" />
+        <attr name="lineColor" format="color" />
+    </declare-styleable>
+
+</resources>

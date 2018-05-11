@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_title" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="16dp"
+        android:background="#F7F7F7" />
+
+    <TableLayout
+        style="@style/horizontal_padding_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow>
+
+            <TextView
+                style="@style/text_primary_16"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/item_height"
+                android:layout_marginLeft="8dp"
+                android:gravity="center_vertical"
+                android:text="+86" />
+
+            <com.bangqu.lib.widget.ClearableEditText
+                android:id="@+id/losepass_mobile"
+                style="@style/text_primary_16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/mobile_hint"
+                android:inputType="number"
+                android:maxLength="11" />
+        </TableRow>
+
+        <View style="@style/horizontal_line" />
+
+        <TableRow>
+
+            <com.bangqu.lib.widget.ClearableEditText
+                android:id="@+id/losepass_token"
+                style="@style/text_primary_16"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/checkCode_hint"
+                android:inputType="number" />
+
+            <Button
+                android:id="@+id/losepass_get_code"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/btn_r30_solid_gray"
+                android:enabled="false"
+                android:text="@string/checkCode_request"
+                android:textSize="12sp" />
+        </TableRow>
+
+
+        <View style="@style/horizontal_line" />
+
+
+        <TableRow android:layout_marginTop="8dp">
+
+            <com.bangqu.lib.widget.ClearableEditText
+                android:id="@+id/losepass_password"
+                style="@style/text_primary_16"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/new_password_hint"
+                android:inputType="textPassword" />
+        </TableRow>
+
+        <View style="@style/horizontal_line" />
+
+        <TableRow>
+
+            <com.bangqu.lib.widget.ClearableEditText
+                android:id="@+id/losepass_password_again"
+                style="@style/text_primary_16"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/new_password_again_hint"
+                android:inputType="textPassword" />
+
+        </TableRow>
+
+        <View style="@style/horizontal_line" />
+
+    </TableLayout>
+
+    <TextView
+        style="@style/text_secondary_14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/password_notice" />
+
+    <Button
+        android:id="@+id/losepass_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/btn_r5_solid_red"
+        android:text="@string/submit"
+        android:textColor="@color/color_white" />
+
+</LinearLayout>

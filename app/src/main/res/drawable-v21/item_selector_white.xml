@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/button_gray_press">
+    <item>
+        <selector>
+            <item
+                android:drawable="@color/button_gray_disable"
+                android:state_enabled="false" />
+            <item
+                android:drawable="@color/button_gray_normal"
+                android:state_enabled="true" />
+        </selector>
+    </item>
+</ripple>

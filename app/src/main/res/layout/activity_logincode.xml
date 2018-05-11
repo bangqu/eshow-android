@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_title" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="16dp"
+        android:background="#F7F7F7" />
+
+    <TableLayout
+        style="@style/horizontal_padding_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="8dp"
+                android:src="@mipmap/ic_phone" />
+
+            <com.bangqu.lib.widget.ClearableEditText
+                android:id="@+id/login_code_mobile"
+                style="@style/text_primary_16"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/mobile_hint"
+                android:inputType="number"
+                android:maxLength="11" />
+        </TableRow>
+
+        <View style="@style/horizontal_line" />
+
+        <TableRow>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="8dp"
+                android:src="@mipmap/ic_pass" />
+
+            <com.bangqu.lib.widget.ClearableEditText
+                android:id="@+id/login_code_token"
+                style="@style/text_primary_16"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/checkCode_hint"
+                android:inputType="number" />
+
+            <Button
+                android:id="@+id/login_get_code"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/btn_r30_solid_gray"
+                android:enabled="false"
+                android:text="@string/checkCode_request"
+                android:textColor="@color/secondary_text"
+                android:textSize="12sp" />
+        </TableRow>
+
+        <View style="@style/horizontal_line" />
+
+    </TableLayout>
+
+    <Button
+        android:id="@+id/login_code_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/btn_r5_solid_red"
+        android:text="@string/login"
+        android:textColor="@color/color_white" />
+
+    <TextView
+        android:id="@+id/login_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="32dp"
+        android:gravity="center"
+        android:text="@string/login_pass"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp" />
+
+</LinearLayout>

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_title" />
+
+    <RelativeLayout
+        android:id="@+id/update_header"
+        style="@style/horizontal_padding_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/item_selector_white"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp">
+
+        <TextView
+            style="@style/text_primary_16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/header" />
+
+        <com.bangqu.lib.widget.RoundImageView
+            android:id="@+id/user_header"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            android:src="@mipmap/ic_defaultheader" />
+
+        <ImageView
+            android:layout_width="8dp"
+            android:layout_height="14dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_arrow_gray" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/update_nickname"
+        style="@style/horizontal_padding_style"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/item_selector_white">
+
+        <TextView
+            style="@style/text_primary_16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/nickname" />
+
+        <com.bangqu.lib.widget.TextViewPlus
+            android:id="@+id/user_nickname"
+            style="@style/text_secondary_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawablePadding="8dp"
+            android:drawableRight="@mipmap/ic_arrow_gray"
+            app:drawHeight="14dp"
+            app:drawWidth="8dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/update_sex"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/item_selector_white"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            style="@style/text_primary_16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/sex" />
+
+        <com.bangqu.lib.widget.TextViewPlus
+            android:id="@+id/user_sex"
+            style="@style/text_secondary_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawablePadding="8dp"
+            android:drawableRight="@mipmap/ic_arrow_gray"
+            app:drawHeight="14dp"
+            app:drawWidth="8dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/update_mobile"
+        style="@style/horizontal_padding_style"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/item_selector_white">
+
+        <TextView
+            style="@style/text_primary_16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/mobile" />
+
+        <TextView
+            android:id="@+id/user_mobile"
+            style="@style/text_secondary_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/update_birthday"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/item_selector_white"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            style="@style/text_primary_16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/birthday" />
+
+        <com.bangqu.lib.widget.TextViewPlus
+            android:id="@+id/user_birthday"
+            style="@style/text_secondary_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawablePadding="8dp"
+            android:drawableRight="@mipmap/ic_arrow_gray"
+            app:drawHeight="14dp"
+            app:drawWidth="8dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/update_constellation"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/item_selector_white"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            style="@style/text_primary_16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/constellation" />
+
+        <com.bangqu.lib.widget.TextViewPlus
+            android:id="@+id/user_constellation"
+            style="@style/text_secondary_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawablePadding="8dp"
+            android:drawableRight="@mipmap/ic_arrow_gray"
+            app:drawHeight="14dp"
+            app:drawWidth="8dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/update_intro"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/item_selector_white"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+
+        <TextView
+            style="@style/text_primary_16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/intro" />
+
+        <com.bangqu.lib.widget.TextViewPlus
+            android:id="@+id/user_intro"
+            style="@style/text_secondary_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawablePadding="8dp"
+            android:drawableRight="@mipmap/ic_arrow_gray"
+            app:drawHeight="14dp"
+            app:drawWidth="8dp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

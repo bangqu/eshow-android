@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MyPhotos</string>
+    <string name="title_photos">图片选择</string>
+    <string name="text_photos">所有图片</string>
+    <string name="text_sure">完成</string>
+    <string name="text_preview">预览</string>
+    <string name="text_choice">选择</string>
+</resources>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_title" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="16dp"
+        android:background="#F7F7F7" />
+
+    <TableLayout
+        style="@style/horizontal_padding_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="8dp"
+                android:src="@mipmap/ic_phone" />
+
+            <com.bangqu.lib.widget.ClearableEditText
+                android:id="@+id/login_mobile"
+                style="@style/text_primary_16"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/mobile_hint"
+                android:inputType="number"
+                android:maxLength="11" />
+        </TableRow>
+
+        <View style="@style/horizontal_line" />
+
+        <TableRow>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="8dp"
+                android:src="@mipmap/ic_pass" />
+
+            <com.bangqu.lib.widget.ClearableEditText
+                android:id="@+id/login_password"
+                style="@style/text_primary_16"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/password_hint"
+                android:inputType="textPassword" />
+
+            <TextView
+                android:id="@+id/lose_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lose_password"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp" />
+        </TableRow>
+
+        <View style="@style/horizontal_line" />
+    </TableLayout>
+
+    <Button
+        android:id="@+id/login_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/btn_r5_solid_red"
+        android:text="@string/login"
+        android:textColor="@color/color_white" />
+
+    <TextView
+        android:id="@+id/login_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="@string/login_code"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/login_agreement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="32dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/login_agree"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/app_agreement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/agreement"
+                android:textColor="@color/color_blue"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/login_agreement"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="32dp"
+            android:orientation="horizontal">
+
+            <com.bangqu.lib.widget.TextViewPlus
+                android:id="@+id/login_qq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@mipmap/socialize_qq"
+                android:gravity="center"
+                android:text="@string/qq_login"
+                android:textSize="14sp"
+                app:drawHeight="54dp"
+                app:drawWidth="54dp" />
+
+            <com.bangqu.lib.widget.TextViewPlus
+                android:id="@+id/login_wx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="64dp"
+                android:drawableTop="@mipmap/socialize_wechat"
+                android:gravity="center"
+                android:text="@string/wx_login"
+                android:textSize="14sp"
+                app:drawHeight="54dp"
+                app:drawWidth="54dp" />
+
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

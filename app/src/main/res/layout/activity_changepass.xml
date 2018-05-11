@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_title" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="16dp"
+        android:background="#F7F7F7" />
+
+    <TableLayout
+        style="@style/horizontal_padding_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="0">
+
+        <TableRow>
+
+            <com.bangqu.lib.widget.ClearableEditText
+                android:id="@+id/changepass_old"
+                style="@style/text_primary_16"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginLeft="8dp"
+                android:background="@null"
+                android:hint="@string/old_password_hint"
+                android:inputType="textPassword" />
+        </TableRow>
+
+        <View style="@style/horizontal_line" />
+
+        <TableRow>
+
+            <com.bangqu.lib.widget.ClearableEditText
+                android:id="@+id/changepass_new"
+                style="@style/text_primary_16"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginLeft="8dp"
+                android:background="@null"
+                android:hint="@string/new_password_hint"
+                android:inputType="textPassword" />
+        </TableRow>
+
+        <View style="@style/horizontal_line" />
+
+        <TableRow>
+
+            <com.bangqu.lib.widget.ClearableEditText
+                android:id="@+id/changepass_again"
+                style="@style/text_primary_16"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginLeft="8dp"
+                android:background="@null"
+                android:hint="@string/new_password_again_hint"
+                android:inputType="textPassword" />
+
+        </TableRow>
+
+        <View style="@style/horizontal_line" />
+
+    </TableLayout>
+
+    <TextView
+        style="@style/text_secondary_14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/password_notice" />
+
+    <Button
+        android:id="@+id/changepass_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/btn_r5_solid_red"
+        android:text="@string/submit"
+        android:textColor="@color/color_white" />
+
+</LinearLayout>

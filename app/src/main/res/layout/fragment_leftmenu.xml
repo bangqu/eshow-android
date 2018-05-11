@@ -1,0 +1,90 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <com.bangqu.lib.widget.RoundImageView
+        android:id="@+id/mine_header"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:src="@mipmap/ic_defaultheader" />
+
+    <TextView
+        android:id="@+id/mine_nickname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textColor="@color/primary_text"
+        android:textSize="14sp" />
+
+    <View
+        style="@style/horizontal_line"
+        android:layout_marginTop="16dp" />
+
+    <com.bangqu.lib.widget.TextViewPlus
+        android:id="@+id/leftmenu_setting"
+        style="@style/horizontal_padding_style"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_height"
+        android:background="@drawable/item_selector_light"
+        android:drawableRight="@mipmap/ic_arrow_gray"
+        android:gravity="center_vertical"
+        android:text="系统设置"
+        android:textColor="@color/primary_text"
+        app:drawHeight="14dp"
+        app:drawWidth="8dp" />
+
+    <View style="@style/horizontal_line" />
+
+    <com.bangqu.lib.widget.TextViewPlus
+        android:id="@+id/leftmenu_changepass"
+        style="@style/horizontal_padding_style"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_height"
+        android:background="@drawable/item_selector_light"
+        android:drawableRight="@mipmap/ic_arrow_gray"
+        android:gravity="center_vertical"
+        android:text="修改密码"
+        android:textColor="@color/primary_text"
+        app:drawHeight="14dp"
+        app:drawWidth="8dp" />
+
+    <View style="@style/horizontal_line" />
+
+    <com.bangqu.lib.widget.TextViewPlus
+        android:id="@+id/leftmenu_aboutus"
+        style="@style/horizontal_padding_style"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_height"
+        android:background="@drawable/item_selector_light"
+        android:drawableRight="@mipmap/ic_arrow_gray"
+        android:gravity="center_vertical"
+        android:text="关于我们"
+        android:textColor="@color/primary_text"
+        app:drawHeight="14dp"
+        app:drawWidth="8dp" />
+
+    <View style="@style/horizontal_line" />
+
+    <com.bangqu.lib.widget.TextViewPlus
+        android:id="@+id/leftmenu_exit"
+        style="@style/horizontal_padding_style"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_height"
+        android:background="@drawable/item_selector_light"
+        android:drawableRight="@mipmap/ic_arrow_gray"
+        android:gravity="center_vertical"
+        android:text="退出登录"
+        android:textColor="@color/primary_text"
+        app:drawHeight="14dp"
+        app:drawWidth="8dp" />
+
+    <View style="@style/horizontal_line" />
+
+</LinearLayout>
+

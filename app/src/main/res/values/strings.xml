@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Eshow</string>
+    <!--登录注册-->
+    <string name="login_code">验证码登录 ></string>
+    <string name="login_pass">密码登录 ></string>
+    <string name="lose_password">忘记密码？</string>
+    <string name="losepass">忘记密码</string>
+    <string name="other_login_notice">第三方快捷登录</string>
+    <string name="wx_login">微信登录</string>
+    <string name="qq_login">QQ登录</string>
+    <string name="agree">我已阅读并同意</string>
+    <string name="login_agree">登录即同意</string>
+    <string name="app_agreement">用户协议</string>
+    <string name="agreement">《Eshow使用协议》</string>
+    <string name="new_password">新密码</string>
+    <string name="new_password_again">确认密码</string>
+    <string name="new_password_hint">请输入新密码</string>
+    <string name="new_password_again_hint">请再次输入新密码</string>
+    <string name="password_notice">密码长度6-20位，字母或数字</string>
+    <string name="old_password_hint">请输入原密码</string>
+    <!--首页-->
+    <string name="open">打开</string>
+    <string name="close">关闭</string>
+</resources>
