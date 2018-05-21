@@ -13,6 +13,21 @@
     <View style="@style/horizontal_line" />
 
     <com.bangqu.lib.widget.TextViewPlus
+        android:id="@+id/menu_normal"
+        style="@style/horizontal_padding_style"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_height"
+        android:background="@drawable/item_selector_white"
+        android:drawableRight="@mipmap/ic_arrow_gray"
+        android:gravity="center_vertical"
+        android:text="主界面"
+        android:textColor="@color/primary_text"
+        app:drawHeight="14dp"
+        app:drawWidth="8dp" />
+
+    <View style="@style/horizontal_line" />
+
+    <com.bangqu.lib.widget.TextViewPlus
         android:id="@+id/menu_list"
         style="@style/horizontal_padding_style"
         android:layout_width="match_parent"
@@ -66,6 +81,21 @@
         android:drawableRight="@mipmap/ic_arrow_gray"
         android:gravity="center_vertical"
         android:text="蓝牙连接"
+        android:textColor="@color/primary_text"
+        app:drawHeight="14dp"
+        app:drawWidth="8dp" />
+
+    <View style="@style/horizontal_line" />
+
+    <com.bangqu.lib.widget.TextViewPlus
+        android:id="@+id/menu_download"
+        style="@style/horizontal_padding_style"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_height"
+        android:background="@drawable/item_selector_white"
+        android:drawableRight="@mipmap/ic_arrow_gray"
+        android:gravity="center_vertical"
+        android:text="下载更新"
         android:textColor="@color/primary_text"
         app:drawHeight="14dp"
         app:drawWidth="8dp" />

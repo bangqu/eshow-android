@@ -5,7 +5,7 @@
     android:background="@color/colorBackground"
     android:orientation="vertical">
 
-    <include layout="@layout/toolbar_title" />
+    <include layout="@layout/toolbar_navigation" />
 
     <LinearLayout
         android:layout_width="wrap_content"

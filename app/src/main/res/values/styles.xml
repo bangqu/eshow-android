@@ -41,5 +41,12 @@
         <item name="android:paddingRight">@dimen/activity_horizontal_margin</item>
     </style>
 
+    <style name="MainTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">@color/color_white</item>
+        <item name="tabIndicatorHeight">0dp</item>
+        <item name="tabPaddingStart">0dp</item>
+        <item name="tabPaddingEnd">0dp</item>
+        <item name="tabBackground">@color/color_white</item>
+    </style>
 
 </resources>

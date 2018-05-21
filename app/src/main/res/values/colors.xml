@@ -17,6 +17,9 @@
     <color name="button_gray_normal">#FFFFFFFF</color>
     <color name="button_gray_press">#FFEAEAEA</color>
     <color name="button_gray_disable">#F7F7F7</color>
+    <!--底部导航字体颜色-->
+    <color name="tab_edit_focused">#F96659</color>
+    <color name="tab_edit_normal">#7E8E9F</color>
 
     <color name="stroke_color">#DDDDDD</color>
     <color name="button_white_press">#EEEEEE</color>

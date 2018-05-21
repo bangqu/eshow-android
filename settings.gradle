@@ -1,1 +1,1 @@
-include ':app', ':bangqulib', ':photoslib', ':bluetoothlib'
+include ':app', ':bangqulib', ':photoslib', ':bluetoothlib', ':downloadlib'

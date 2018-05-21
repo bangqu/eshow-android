@@ -1,29 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
     android:orientation="vertical">
 
-    <include layout="@layout/toolbar_title" />
-
-    <android.support.v4.widget.DrawerLayout
-        android:id="@+id/main_drawer"
+    <FrameLayout
+        android:id="@+id/main_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
-        <FrameLayout
-            android:id="@+id/frame_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+    <View style="@style/horizontal_line" />
 
-        <FrameLayout
-            android:id="@+id/frame_left_menu"
-            android:layout_width="240dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="left"
-            android:background="@color/colorPrimaryLight" />
-
-    </android.support.v4.widget.DrawerLayout>
+    <android.support.design.widget.TabLayout
+        android:id="@+id/main_tabLayout"
+        style="@style/MainTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize" />
 
 </LinearLayout>
