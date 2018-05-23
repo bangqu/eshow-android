@@ -2,6 +2,7 @@ package com.bangqu.lib.widget;
 
 /**
  * Created by Administrator on 2018-4-25 0025.
+ * 带一键清空操作的输入框
  */
 
 import android.content.Context;

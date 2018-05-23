@@ -8,6 +8,7 @@ import android.widget.RelativeLayout;
 
 /**
  * Created by Administrator on 2018-1-9 0009.
+ * 方形布局
  */
 
 public class SquareLayout extends RelativeLayout {

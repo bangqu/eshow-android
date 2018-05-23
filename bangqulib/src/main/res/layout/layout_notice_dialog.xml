@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="300dp"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/dialog_bg"
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/confirm_title"
+        android:id="@+id/notice_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:textColor="@color/color_black"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/notice_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -21,7 +30,7 @@
         android:background="@color/color_stroke" />
 
     <Button
-        android:id="@+id/confirm_ok"
+        android:id="@+id/notice_ok"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_weight="1"

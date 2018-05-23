@@ -28,7 +28,7 @@ public class FunctionAdapter extends BaseSimpleAdapter<String> {
     protected View getViewAtPosition(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
         if (convertView == null) {
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.item_function, null);
+            convertView = mInflater.inflate(R.layout.item_function, null);
             viewHolder = new ViewHolder(convertView);
             convertView.setTag(viewHolder);
         } else {

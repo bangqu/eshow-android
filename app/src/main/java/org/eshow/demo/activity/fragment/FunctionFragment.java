@@ -9,6 +9,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.ContactsContract;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.RecyclerViewAccessibilityDelegate;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +23,7 @@ import com.bangqu.download.presenter.DownLoadImpl;
 import com.bangqu.download.service.DownloadService;
 import com.bangqu.download.utils.FileUtil;
 import com.bangqu.download.widget.DownloadDialog;
+import com.bangqu.lib.listener.DialogConfirmListener;
 import com.bangqu.lib.widget.ConfirmDialog;
 import com.bangqu.lib.widget.UpdateAppDialog;
 import com.google.zxing.activity.CaptureActivity;
@@ -30,6 +33,7 @@ import org.eshow.demo.activity.BluetoothActivity;
 import org.eshow.demo.activity.LeftMenuActivity;
 import org.eshow.demo.activity.LoadingListActivity;
 import org.eshow.demo.activity.PhotosPickActivity;
+import org.eshow.demo.activity.RecyclerViewActivity;
 import org.eshow.demo.activity.WebActivity;
 import org.eshow.demo.adapter.FunctionAdapter;
 import org.eshow.demo.base.BaseFragment;
@@ -70,6 +74,7 @@ public class FunctionFragment extends BaseFragment implements DownLoadImpl {
             add("下载更新");
             add("扫一扫");
             add("联系人");
+            add("RecyclerView");
         }
     };
 
@@ -128,6 +133,9 @@ public class FunctionFragment extends BaseFragment implements DownLoadImpl {
                         Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
                         startActivityForResult(intent, REQUEST_CONTACTS);
                         break;
+                    case "RecyclerView":
+                        goToActivity(RecyclerViewActivity.class);
+                        break;
                 }
             }
         });
@@ -135,10 +143,10 @@ public class FunctionFragment extends BaseFragment implements DownLoadImpl {
 
     private void showUpdateDialog() {
         String update = "1、修复BUG；\n2、界面优化；\n3、功能完善。";
-        new UpdateAppDialog(getContext(), "2.0", update, new UpdateAppDialog.OnUpdateListener() {
+        new UpdateAppDialog(getContext(), "2.0", update, new DialogConfirmListener() {
             @Override
-            public void onUpdate(boolean value) {
-                if (value) {
+            public void onDialogConfirm(boolean result, Object value) {
+                if (result) {
                     downLoadApk("http://download.sj.qq.com/upload/connAssitantDownload/upload/MobileAssistant_1.apk");
                 }
             }

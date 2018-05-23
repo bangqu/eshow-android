@@ -16,6 +16,7 @@ import android.view.KeyEvent;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.bangqu.lib.listener.DialogConfirmListener;
 import com.bangqu.lib.widget.ConfirmDialog;
 
 import org.eshow.demo.DemoApplication;
@@ -102,9 +103,9 @@ public class LeftMenuActivity extends BaseActivity {
     }
 
     private void showExitDialog() {
-        new ConfirmDialog(this, "提示", "确认退出登录？", new ConfirmDialog.OnConfrimClickedListener() {
+        new ConfirmDialog(this, "提示", "确认退出登录？", new DialogConfirmListener() {
             @Override
-            public void onConfirm(boolean value) {
+            public void onDialogConfirm(boolean value, Object v) {
                 if (value) {
                     goToActivity(LoginActivity.class);
                     finish();

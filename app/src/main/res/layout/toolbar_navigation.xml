@@ -25,4 +25,14 @@
         android:textColor="@color/icons"
         android:textSize="@dimen/text_size_right"
         android:visibility="gone" />
+
+    <ImageButton
+        android:id="@+id/right_iv"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="right|center_vertical"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/btn_o_solid_red"
+        android:src="@mipmap/icon_setting"
+        android:visibility="gone" />
 </android.support.v7.widget.Toolbar>

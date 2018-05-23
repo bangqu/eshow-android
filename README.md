@@ -37,7 +37,9 @@ Android Studio 3.0<br>
 
 四、项目代码说明
 -----
-###1、网络请求说明
+
+### 1、网络请求说明
+
 首先定义一个请求响应接收类，返回参数为JsonObject
 ```Java
 private ResponseCallBack responseCallBack = new ResponseCallBack() {

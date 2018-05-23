@@ -12,6 +12,7 @@ import com.bangqu.lib.R;
 
 /**
  * Created by Administrator on 2016/7/4.
+ * 底部弹出菜单选择框
  */
 public class MenuDialog extends Dialog {
 

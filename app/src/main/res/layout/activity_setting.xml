@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_navigation" />
+
+    <com.bangqu.lib.widget.TextViewPlus
+        android:id="@+id/setting_account_safe"
+        style="@style/viewGroup_item_style"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/item_selector_white"
+        android:drawableRight="@mipmap/ic_arrow_gray"
+        android:text="@string/setting_account_safe"
+        android:textColor="@color/primary_text"
+        android:textSize="16sp" />
+
+    <View style="@style/horizontal_line" />
+
+    <com.bangqu.lib.widget.TextViewPlus
+        android:id="@+id/setting_feedback"
+        style="@style/viewGroup_item_style"
+        android:background="@drawable/item_selector_white"
+        android:drawableRight="@mipmap/ic_arrow_gray"
+        android:text="@string/setting_feedback"
+        android:textColor="@color/primary_text"
+        android:textSize="16sp" />
+
+    <com.bangqu.lib.widget.TextViewPlus
+        android:id="@+id/setting_aboutus"
+        style="@style/viewGroup_item_style"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/item_selector_white"
+        android:drawableRight="@mipmap/ic_arrow_gray"
+        android:text="@string/setting_aboutus"
+        android:textColor="@color/primary_text"
+        android:textSize="16sp" />
+
+    <View style="@style/horizontal_line" />
+
+    <com.bangqu.lib.widget.TextViewPlus
+        android:id="@+id/setting_question"
+        style="@style/viewGroup_item_style"
+        android:background="@drawable/item_selector_white"
+        android:drawableRight="@mipmap/ic_arrow_gray"
+        android:text="@string/setting_question"
+        android:textColor="@color/primary_text"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/setting_logout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/btn_r5_solid_red"
+        android:text="@string/logout"
+        android:textColor="@color/color_white" />
+
+</LinearLayout>

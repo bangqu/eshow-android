@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bangqu.lib.widget.RoundImageView;
@@ -11,6 +12,7 @@ import com.bumptech.glide.Glide;
 
 import org.eshow.demo.R;
 import org.eshow.demo.activity.MainActivity;
+import org.eshow.demo.activity.SettingActivity;
 import org.eshow.demo.activity.UserInfoActivity;
 import org.eshow.demo.base.BaseFragment;
 
@@ -25,6 +27,8 @@ public class MineFragment extends BaseFragment {
 
     @BindView(R.id.title)
     TextView title;
+    @BindView(R.id.right_iv)
+    ImageView rightIv;
     @BindView(R.id.mine_avatar)
     RoundImageView mineAvatar;
     @BindView(R.id.mine_nick)
@@ -51,17 +55,21 @@ public class MineFragment extends BaseFragment {
 
     private void initView() {
         title.setText("我的");
+        rightIv.setVisibility(View.VISIBLE);
         mineNick.setText("Eshow");
         mineIntro.setText("一套简单好用的移动框架");
     }
 
-    @OnClick({R.id.mine_avatar, R.id.mine_nick, R.id.mine_intro})
+    @OnClick({R.id.mine_avatar, R.id.mine_nick, R.id.mine_intro, R.id.right_iv})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.mine_avatar:
             case R.id.mine_nick:
             case R.id.mine_intro:
                 goToActivity(UserInfoActivity.class);
+                break;
+            case R.id.right_iv:
+                goToActivity(SettingActivity.class);
                 break;
         }
     }

@@ -10,25 +10,29 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.bangqu.lib.R;
+import com.bangqu.lib.listener.DialogConfirmListener;
 import com.bangqu.lib.utils.AppUtils;
 
 /**
  * Created by Administrator on 2016/7/4.
+ * 操作确认提示框
  */
 public class ConfirmDialog extends Dialog {
 
     private TextView tv_title;
     private TextView tv_message;
-    private Context mContext;
-    private OnConfrimClickedListener onConfrimClickedListener;
+    private DialogConfirmListener onConfrimClickedListener;
 
-    public ConfirmDialog(Context context, String title, String message, OnConfrimClickedListener listener) {
+    public ConfirmDialog(Context context, String message, DialogConfirmListener listener) {
+        this(context, "提示", message, listener);
+    }
+
+    public ConfirmDialog(Context context, String title, String message, DialogConfirmListener listener) {
         this(context, title, message, "确定", "取消", listener);
     }
 
-    public ConfirmDialog(Context context, String title, String message, String ok, String cancel, OnConfrimClickedListener listener) {
+    public ConfirmDialog(Context context, String title, String message, String ok, String cancel, DialogConfirmListener listener) {
         super(context, R.style.menu_dialog_style);
-        mContext = context;
         onConfrimClickedListener = listener;
         setContentView(R.layout.layout_confirm_dialog);
         Window window = getWindow();
@@ -50,12 +54,12 @@ public class ConfirmDialog extends Dialog {
                 int i = v.getId();
                 if (i == R.id.confirm_ok) {
                     if (onConfrimClickedListener != null) {
-                        onConfrimClickedListener.onConfirm(true);
+                        onConfrimClickedListener.onDialogConfirm(true, null);
                     }
                     dismiss();
                 } else if (i == R.id.confirm_cancel) {
                     if (onConfrimClickedListener != null) {
-                        onConfrimClickedListener.onConfirm(false);
+                        onConfrimClickedListener.onDialogConfirm(false, null);
                     }
                     dismiss();
                 }
@@ -63,10 +67,6 @@ public class ConfirmDialog extends Dialog {
         };
         findViewById(R.id.confirm_ok).setOnClickListener(onClickListener);
         findViewById(R.id.confirm_cancel).setOnClickListener(onClickListener);
-    }
-
-    public interface OnConfrimClickedListener {
-        void onConfirm(boolean value);
     }
 
 }

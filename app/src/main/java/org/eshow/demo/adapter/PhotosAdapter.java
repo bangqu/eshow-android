@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
+import com.bangqu.lib.base.BaseSimpleAdapter;
 import com.bangqu.photos.util.ImageSelect;
 import com.bumptech.glide.Glide;
 
@@ -21,48 +22,33 @@ import butterknife.ButterKnife;
 /**
  * Created by 15052286501 on 2017/8/29.
  */
-public class PhotosAdapter extends BaseAdapter {
-
-    private List<String> mList;
-    private Context mContext;
+public class PhotosAdapter extends BaseSimpleAdapter<String> {
 
     public PhotosAdapter(Context context, List<String> list) {
-        mList = list;
-        mContext = context;
+        super(context, list);
     }
 
     @Override
     public int getCount() {
-        return mList != null ? mList.size() + 1 : 1;
+        return super.getCount() + 1;
     }
 
     @Override
-    public Object getItem(int position) {
-        return position;
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    protected View getViewAtPosition(final int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
         convertView = LayoutInflater.from(mContext).inflate(R.layout.item_photos, null);
         viewHolder = new ViewHolder(convertView);
-        if (position < mList.size()) {
-            Glide.with(mContext).load(mList.get(position)).into(viewHolder.photosPic);
+        if (position < getCount() - 1) {
+            Glide.with(mContext).load(getItem(position)).into(viewHolder.photosPic);
             viewHolder.photosDel.setVisibility(View.VISIBLE);
         } else {
             Glide.with(mContext).load(R.mipmap.btn_star_addstar).into(viewHolder.photosPic);
-//            viewHolder.photosPic.setImageResource(R.mipmap.btn_star_addstar);
             viewHolder.photosDel.setVisibility(View.GONE);
         }
         viewHolder.photosDel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mList.remove(position);
+                mData.remove(position);
                 notifyDataSetChanged();
                 ImageSelect.mSelectedImage.remove(position);
             }
