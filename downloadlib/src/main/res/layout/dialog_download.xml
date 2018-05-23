@@ -10,19 +10,17 @@
         android:id="@+id/progressbar_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:gravity="center"
         android:textColor="@color/color_black"
-        android:textSize="14sp" />
+        android:textSize="16sp" />
 
     <com.bangqu.download.widget.NumberProgressBar
         android:id="@+id/progressbar_pb"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:max="1000"
-        android:progress="500" />
+        android:layout_margin="16dp" />
 
     <View
         android:layout_width="match_parent"

@@ -43,8 +43,8 @@ public class SlipLoadLayout extends ViewGroup {
     /*目标View*/
     private View mTargetView;
     /*下拉刷新View*/
-    private SlipLoadHeader2 refreshHeader;
-    private LinearLayout headerView;
+    private SlipLoadHeader refreshHeader;
+    private RelativeLayout headerView;
     /*加载更多View*/
     private SlipLoadFooter refreshFooter;
     private RelativeLayout footerView;
@@ -84,7 +84,7 @@ public class SlipLoadLayout extends ViewGroup {
         mDragMaxDistance = dp2px(DRAG_MAX_DISTANCE);
         mDragMinDistance = dp2px(DRAG_MIN_DISTANCE);
         /*下拉刷新View*/
-        refreshHeader = new SlipLoadHeader2(context);
+        refreshHeader = new SlipLoadHeader(context);
         headerView = refreshHeader.getHeaderView();
         addView(headerView);
         /*加载更多View*/

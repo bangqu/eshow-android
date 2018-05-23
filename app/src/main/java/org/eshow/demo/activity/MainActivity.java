@@ -122,6 +122,7 @@ public class MainActivity extends BaseActivity {
                 fts.show(functionFragment).commit();
                 break;
             case 2:
+                setMessageCount(0);
                 if (messageFragment == null) {
                     messageFragment = new MessageFragment();
                     fts.add(R.id.main_content, messageFragment, tabTitles[n]);
@@ -154,6 +155,8 @@ public class MainActivity extends BaseActivity {
     private final int REQUEST_CODE_PERMISSION = 0;
     private String[] permissionArray = new String[]{
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.CAMERA,
+            Manifest.permission.READ_CONTACTS,
     };
 
     @Override

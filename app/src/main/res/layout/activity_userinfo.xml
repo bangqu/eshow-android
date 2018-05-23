@@ -24,21 +24,21 @@
             android:layout_centerVertical="true"
             android:text="@string/header" />
 
+        <ImageView
+            android:id="@+id/header_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_arrow_gray" />
+
         <com.bangqu.lib.widget.RoundImageView
             android:id="@+id/user_header"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="16dp"
+            android:layout_toLeftOf="@id/header_arrow"
             android:src="@mipmap/ic_defaultheader" />
-
-        <ImageView
-            android:layout_width="8dp"
-            android:layout_height="14dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:src="@mipmap/ic_arrow_gray" />
 
     </RelativeLayout>
 
@@ -65,10 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:drawablePadding="8dp"
-            android:drawableRight="@mipmap/ic_arrow_gray"
-            app:drawHeight="14dp"
-            app:drawWidth="8dp" />
+            android:drawableRight="@mipmap/ic_arrow_gray" />
 
     </RelativeLayout>
 
@@ -96,10 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:drawablePadding="8dp"
-            android:drawableRight="@mipmap/ic_arrow_gray"
-            app:drawHeight="14dp"
-            app:drawWidth="8dp" />
+            android:drawableRight="@mipmap/ic_arrow_gray" />
 
     </RelativeLayout>
 
@@ -153,10 +147,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:drawablePadding="8dp"
-            android:drawableRight="@mipmap/ic_arrow_gray"
-            app:drawHeight="14dp"
-            app:drawWidth="8dp" />
+            android:drawableRight="@mipmap/ic_arrow_gray" />
 
     </RelativeLayout>
 
@@ -184,10 +175,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:drawablePadding="8dp"
-            android:drawableRight="@mipmap/ic_arrow_gray"
-            app:drawHeight="14dp"
-            app:drawWidth="8dp" />
+            android:drawableRight="@mipmap/ic_arrow_gray" />
 
     </RelativeLayout>
 
@@ -215,10 +203,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:drawablePadding="8dp"
-            android:drawableRight="@mipmap/ic_arrow_gray"
-            app:drawHeight="14dp"
-            app:drawWidth="8dp" />
+            android:drawableRight="@mipmap/ic_arrow_gray" />
 
     </RelativeLayout>
 

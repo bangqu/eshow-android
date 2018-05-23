@@ -87,7 +87,7 @@ public class UserInfoActivity extends BaseActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("");
-        title.setText("个人中心");
+        title.setText("基本资料");
         userInfo = sharedPref.getJsonInfo(Constants.USER_INFO, UserInfo.class);
         menuDialog = new MenuDialog(this);
         userMobile.setText("15866668888");
@@ -139,7 +139,7 @@ public class UserInfoActivity extends BaseActivity {
             case R.id.update_sex:
                 menuDialog.setMenuItems(new String[]{"男", "女"}, new MenuDialog.OnMenuItemClickedListener() {
                     @Override
-                    public void MenuItemClicked(String value,int position) {
+                    public void MenuItemClicked(String value, int position) {
                         switch (position) {
                             case 0:
                                 userSex.setText("男");
@@ -207,7 +207,7 @@ public class UserInfoActivity extends BaseActivity {
     private void showPickHeaderMenu() {
         menuDialog.setMenuItems(new String[]{"拍照", "图库选择"}, new MenuDialog.OnMenuItemClickedListener() {
             @Override
-            public void MenuItemClicked(String value,int position) {
+            public void MenuItemClicked(String value, int position) {
                 switch (position) {
                     case 0:
                         takePhoto();

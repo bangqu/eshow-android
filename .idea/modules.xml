@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Eshow.iml" filepath="$PROJECT_DIR$/Eshow.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bangqulib/bangqulib.iml" filepath="$PROJECT_DIR$/bangqulib/bangqulib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bluetoothlib/bluetoothlib.iml" filepath="$PROJECT_DIR$/bluetoothlib/bluetoothlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/downloadlib/downloadlib.iml" filepath="$PROJECT_DIR$/downloadlib/downloadlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/photoslib/photoslib.iml" filepath="$PROJECT_DIR$/photoslib/photoslib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/qrcodelib/qrcodelib.iml" filepath="$PROJECT_DIR$/qrcodelib/qrcodelib.iml" />
+    </modules>
+  </component>
+</project>

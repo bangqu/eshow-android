@@ -8,7 +8,7 @@
     <color name="secondary_text">#757575</color>
     <color name="icons">#FFFFFF</color>
     <color name="divider">#DDDDDD</color>
-    <color name="colorBackground">#FFFFFF</color>
+    <color name="colorBackground">#E8EDF6</color>
 
     <color name="button_red_normal">#F96659</color>
     <color name="button_red_press">#E24B43</color>
@@ -19,7 +19,7 @@
     <color name="button_gray_disable">#F7F7F7</color>
     <!--底部导航字体颜色-->
     <color name="tab_edit_focused">#F96659</color>
-    <color name="tab_edit_normal">#7E8E9F</color>
+    <color name="tab_edit_normal">#757575</color>
 
     <color name="stroke_color">#DDDDDD</color>
     <color name="button_white_press">#EEEEEE</color>

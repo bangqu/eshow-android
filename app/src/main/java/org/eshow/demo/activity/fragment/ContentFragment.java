@@ -41,7 +41,7 @@ import butterknife.OnClick;
 /**
  * Created by zhy on 15/4/26.
  */
-public class ContentFragment extends BaseFragment implements DownLoadImpl {
+public class ContentFragment extends BaseFragment {
 
     @BindView(R.id.content_banner)
     BannerView contentBanner;
@@ -88,8 +88,7 @@ public class ContentFragment extends BaseFragment implements DownLoadImpl {
         contentBanner.startLoop(true);
     }
 
-    @OnClick({R.id.menu_normal, R.id.menu_list, R.id.menu_photos, R.id.menu_webview, R.id.menu_ble
-            , R.id.menu_download})
+    @OnClick({R.id.menu_normal, R.id.menu_list, R.id.menu_photos, R.id.menu_webview, R.id.menu_ble})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.menu_normal:
@@ -112,36 +111,7 @@ public class ContentFragment extends BaseFragment implements DownLoadImpl {
             case R.id.menu_ble:
                 goToActivity(BluetoothActivity.class);
                 break;
-            case R.id.menu_download:
-                showUpdateDialog();
-                break;
         }
-    }
-
-    private void showUpdateDialog() {
-        String update = "1、修复BUG；\n2、界面优化；\n3、功能完善。";
-        new UpdateAppDialog(getContext(), "2.0", update, new UpdateAppDialog.OnUpdateListener() {
-            @Override
-            public void onUpdate(boolean value) {
-                if (value) {
-                    downLoadApk("http://download.sj.qq.com/upload/connAssitantDownload/upload/MobileAssistant_1.apk");
-                }
-            }
-        }).show();
-    }
-
-    private void downLoadApk(String url) {
-        this.bindService(url, "demo.apk");
-        progressDialog = new DownloadDialog(getContext(), "下载中", new DownloadDialog.DialogConfirmListener() {
-            @Override
-            public void onDialogConfirm(boolean result, Object value) {
-
-            }
-        });
-        progressDialog.show();
-//        DownloadUtils down = new DownloadUtils();
-//        down.init(getContext());
-//        down.downloadFile(url, "demo.apk");
     }
 
     @Override
@@ -158,41 +128,4 @@ public class ContentFragment extends BaseFragment implements DownLoadImpl {
         super.onDestroyView();
     }
 
-    private ServiceConnection conn = new ServiceConnection() {
-
-        @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            DownloadService.DownloadBinder binder = (DownloadService.DownloadBinder) service;
-            DownloadService downloadService = binder.getService();
-            //接口回调，下载进度
-            downloadService.setOnProgressListener(new DownloadService.OnProgressListener() {
-                @Override
-                public void onProgress(float fraction) {
-                    LogInfo.e("下载进度：" + fraction);
-                    if (progressDialog != null) {
-                        progressDialog.setProgress((int) (fraction * 100));
-                    }
-                    //判断是否真的下载完成进行安装了，以及是否注册绑定过服务
-                    if (fraction == DownloadService.UNBIND_SERVICE && isBindService) {
-                        getActivity().getApplicationContext().unbindService(conn);
-                        isBindService = false;
-                        showToast("下载完成！");
-                    }
-                }
-            });
-        }
-
-        @Override
-        public void onServiceDisconnected(ComponentName name) {
-
-        }
-    };
-
-    @Override
-    public void bindService(String apkUrl, String fileName) {
-        Intent intent = new Intent(getContext(), DownloadService.class);
-        intent.putExtra(DownloadService.BUNDLE_KEY_DOWNLOAD_URL, apkUrl);
-        intent.putExtra(DownloadService.BUNDLE_KEY_FILENAME, fileName);
-        isBindService = getActivity().getApplicationContext().bindService(intent, conn, Activity.BIND_AUTO_CREATE);
-    }
 }

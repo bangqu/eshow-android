@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@mipmap/capture_light_on" android:state_checked="true" /><!--按下时的背景-->
+    <item android:drawable="@mipmap/capture_light_off" android:state_checked="false" /><!--获得焦点时的背景-->
+    <item android:drawable="@mipmap/capture_light_off" /> <!--默认背景-->
+</selector>

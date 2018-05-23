@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">qrcodelib</string>
+    <string name="qrcode_title">扫一扫</string>
+    <string name="qrcode_notice">将二维码/条形码放入框内，即可自动扫描</string>
+</resources>

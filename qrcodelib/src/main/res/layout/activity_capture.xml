@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <SurfaceView
+        android:id="@+id/scanner_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.google.zxing.view.ViewfinderView
+        android:id="@+id/viewfinder_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        app:corner_color="@color/corner_color"
+        app:frame_color="@color/viewfinder_frame"
+        app:laser_color="@color/laser_color"
+        app:mask_color="@color/viewfinder_mask"
+        app:result_color="@color/result_view"
+        app:result_point_color="@color/result_point_color" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/qrcode_title"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp">
+
+        <ImageView
+            android:id="@+id/chose_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="32dp"
+            android:src="@mipmap/capture_img" />
+
+        <CheckBox
+            android:id="@+id/light_switch"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/checkbox_light"
+            android:button="@null" />
+
+        <ImageView
+            android:id="@+id/capture_close"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="32dp"
+            android:src="@mipmap/capture_close" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="120dp"
+        android:text="@string/qrcode_notice"
+        android:textColor="@color/viewfinder_frame"
+        android:textSize="14sp" />
+
+</RelativeLayout>

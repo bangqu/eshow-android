@@ -35,7 +35,6 @@ public class DownloadService extends Service {
     public static final int HANDLE_DOWNLOAD = 0x001;
     public static final String BUNDLE_KEY_DOWNLOAD_URL = "download_url";
     public static final String BUNDLE_KEY_FILENAME = "download_filename";
-    public static final float UNBIND_SERVICE = 2.0F;
 
     private DownloadBinder binder;
     private DownloadManager downloadManager;
@@ -83,7 +82,7 @@ public class DownloadService extends Service {
     }
 
     /**
-     * 下载最新APK
+     * 下载文件
      */
     private void downloadApk(String downloadUrl, String fileName) {
         downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
@@ -160,7 +159,6 @@ public class DownloadService extends Service {
         if (scheduledExecutorService != null && !scheduledExecutorService.isShutdown()) {
             scheduledExecutorService.shutdown();
         }
-
         if (downLoadHandler != null) {
             downLoadHandler.removeCallbacksAndMessages(null);
         }
@@ -215,14 +213,8 @@ public class DownloadService extends Service {
             switch (intent.getAction()) {
                 case DownloadManager.ACTION_DOWNLOAD_COMPLETE:
                     if (downloadId == downId && downId != -1 && downloadManager != null) {
-                        Uri downIdUri = downloadManager.getUriForDownloadedFile(downloadId);
-                        close();
-                        if (downIdUri != null) {
-                            LogUtil.i(TAG, "广播监听下载完成，APK存储路径为 ：" + downIdUri.getPath());
-                            installApk(context);
-                        }
                         if (onProgressListener != null) {
-                            onProgressListener.onProgress(UNBIND_SERVICE);
+                            onProgressListener.onProgressDone(downloadFile);
                         }
                     }
                     break;
@@ -249,7 +241,7 @@ public class DownloadService extends Service {
          */
         @Override
         public void onChange(boolean selfChange) {
-            scheduledExecutorService.scheduleAtFixedRate(progressRunnable, 0, 2, TimeUnit.SECONDS);
+            scheduledExecutorService.scheduleAtFixedRate(progressRunnable, 0, 500, TimeUnit.MILLISECONDS);
         }
     }
 
@@ -272,6 +264,8 @@ public class DownloadService extends Service {
          * @param fraction 已下载/总大小
          */
         void onProgress(float fraction);
+
+        void onProgressDone(File downloadFile);
     }
 
     /**
@@ -283,23 +277,22 @@ public class DownloadService extends Service {
         this.onProgressListener = onProgressListener;
     }
 
+    /*取消下载任务*/
+    public void cancelService() {
+        if (downloadManager != null)
+            downloadManager.remove(downloadId);
+        close();
+        unregisterBroadcast();
+        unregisterContentObserver();
+    }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
+        close();
         unregisterBroadcast();
         unregisterContentObserver();
         LogUtil.i(TAG, "下载任务服务销毁");
     }
 
-    /**
-     * 安装APK
-     *
-     * @param context
-     */
-    public void installApk(Context context) {
-        Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.setDataAndType(Uri.fromFile(downloadFile), "application/vnd.android.package-archive");
-        context.startActivity(intent);
-    }
 }

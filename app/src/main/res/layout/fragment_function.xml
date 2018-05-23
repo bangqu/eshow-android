@@ -7,95 +7,21 @@
 
     <include layout="@layout/toolbar_navigation" />
 
-    <com.bangqu.lib.widget.TextViewPlus
-        android:id="@+id/menu_normal"
-        style="@style/horizontal_padding_style"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/item_height"
-        android:background="@drawable/item_selector_white"
-        android:drawableRight="@mipmap/ic_arrow_gray"
+        android:layout_height="48dp"
+        android:layout_marginLeft="16dp"
         android:gravity="center_vertical"
-        android:text="左侧菜单"
-        android:textColor="@color/primary_text"
-        app:drawHeight="14dp"
-        app:drawWidth="8dp" />
+        android:text="功能演示"
+        android:textColor="@color/primary_text" />
 
-    <View style="@style/horizontal_line" />
-
-    <com.bangqu.lib.widget.TextViewPlus
-        android:id="@+id/menu_list"
-        style="@style/horizontal_padding_style"
+    <GridView
+        android:id="@+id/function_grid"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/item_height"
-        android:background="@drawable/item_selector_white"
-        android:drawableRight="@mipmap/ic_arrow_gray"
-        android:gravity="center_vertical"
-        android:text="列表刷新"
-        android:textColor="@color/primary_text"
-        app:drawHeight="14dp"
-        app:drawWidth="8dp" />
-
-    <View style="@style/horizontal_line" />
-
-    <com.bangqu.lib.widget.TextViewPlus
-        android:id="@+id/menu_photos"
-        style="@style/horizontal_padding_style"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/item_height"
-        android:background="@drawable/item_selector_white"
-        android:drawableRight="@mipmap/ic_arrow_gray"
-        android:gravity="center_vertical"
-        android:text="多图选择"
-        android:textColor="@color/primary_text"
-        app:drawHeight="14dp"
-        app:drawWidth="8dp" />
-
-    <View style="@style/horizontal_line" />
-
-    <com.bangqu.lib.widget.TextViewPlus
-        android:id="@+id/menu_webview"
-        style="@style/horizontal_padding_style"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/item_height"
-        android:background="@drawable/item_selector_white"
-        android:drawableRight="@mipmap/ic_arrow_gray"
-        android:gravity="center_vertical"
-        android:text="网址加载"
-        android:textColor="@color/primary_text"
-        app:drawHeight="14dp"
-        app:drawWidth="8dp" />
-
-    <View style="@style/horizontal_line" />
-
-    <com.bangqu.lib.widget.TextViewPlus
-        android:id="@+id/menu_ble"
-        style="@style/horizontal_padding_style"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/item_height"
-        android:background="@drawable/item_selector_white"
-        android:drawableRight="@mipmap/ic_arrow_gray"
-        android:gravity="center_vertical"
-        android:text="蓝牙连接"
-        android:textColor="@color/primary_text"
-        app:drawHeight="14dp"
-        app:drawWidth="8dp" />
-
-    <View style="@style/horizontal_line" />
-
-    <com.bangqu.lib.widget.TextViewPlus
-        android:id="@+id/menu_download"
-        style="@style/horizontal_padding_style"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/item_height"
-        android:background="@drawable/item_selector_white"
-        android:drawableRight="@mipmap/ic_arrow_gray"
-        android:gravity="center_vertical"
-        android:text="下载更新"
-        android:textColor="@color/primary_text"
-        app:drawHeight="14dp"
-        app:drawWidth="8dp" />
-
-    <View style="@style/horizontal_line" />
+        android:layout_height="wrap_content"
+        android:horizontalSpacing="1dp"
+        android:numColumns="3"
+        android:verticalSpacing="1dp" />
 
 </LinearLayout>
 

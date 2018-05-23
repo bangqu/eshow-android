@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.bangqu.download.R;
 
+import java.io.File;
+
 /**
  * Created by Administrator on 2016/7/4.
  */
@@ -18,13 +20,19 @@ public class DownloadDialog extends Dialog {
 
     private TextView tv_title;
     private NumberProgressBar progressBar;
+    private Button btnOk, btnCancel;
+    private File downloadFile;
 
     public DownloadDialog(Context context, String title, DialogConfirmListener listener) {
-        this(context, title, "确定", "取消", listener);
+        this(context, title, "后台下载", "取消", listener);
     }
 
     public void setProgress(int progress) {
         progressBar.setProgress(progress);
+        if (progress >= 100) {
+            tv_title.setText("下载完成");
+            btnOk.setText("立即安装");
+        }
     }
 
     public DownloadDialog(Context context, String title, String ok, String cancel, final DialogConfirmListener listener) {
@@ -38,17 +46,17 @@ public class DownloadDialog extends Dialog {
         tv_title = findViewById(R.id.progressbar_title);
         progressBar = findViewById(R.id.progressbar_pb);
         tv_title.setText(title);
-        Button btnCancel = findViewById(R.id.progressbar_cancel);
+        btnCancel = findViewById(R.id.progressbar_cancel);
         btnCancel.setText(cancel);
-        Button btnOk = findViewById(R.id.progressbar_ok);
+        btnOk = findViewById(R.id.progressbar_ok);
         btnOk.setText(ok);
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int i = v.getId();
                 if (i == R.id.progressbar_ok) {
-                    if (listener != null) {
-                        listener.onDialogConfirm(true, null);
+                    if (listener != null && downloadFile != null) {
+                        listener.onDialogConfirm(true, downloadFile);
                     }
                     dismiss();
                 } else if (i == R.id.progressbar_cancel) {
@@ -61,6 +69,10 @@ public class DownloadDialog extends Dialog {
         };
         btnCancel.setOnClickListener(onClickListener);
         btnOk.setOnClickListener(onClickListener);
+    }
+
+    public void setDownloadFile(File downloadFile) {
+        this.downloadFile = downloadFile;
     }
 
     public interface DialogConfirmListener {

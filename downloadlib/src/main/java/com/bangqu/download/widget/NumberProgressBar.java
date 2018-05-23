@@ -146,15 +146,12 @@ public class NumberProgressBar extends View {
         super(context, attrs, defStyleAttr);
 
         mContext = context;
-
-        default_reached_bar_height = dp2px(1.5f);
-        default_unreached_bar_height = dp2px(1.0f);
-        default_text_size = sp2px(10);
-        default_progress_text_offset = dp2px(3.0f);
-
+        default_reached_bar_height = dp2px(2.5f);
+        default_unreached_bar_height = dp2px(2f);
+        default_text_size = sp2px(12);
+        default_progress_text_offset = dp2px(4.0f);
         //load styled attributes.
         final TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.NumberProgressBar, defStyleAttr, 0);
-
         mReachedBarColor = attributes.getColor(R.styleable.NumberProgressBar_progress_reached_color, default_reached_color);
         mUnreachedBarColor = attributes.getColor(R.styleable.NumberProgressBar_progress_unreached_color, default_unreached_color);
         mTextColor = attributes.getColor(R.styleable.NumberProgressBar_progress_text_color, default_text_color);
@@ -168,7 +165,6 @@ public class NumberProgressBar extends View {
         setMax(attributes.getInt(R.styleable.NumberProgressBar_max, 100));
         //
         attributes.recycle();
-
         initializePainters();
     }
 

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
+    android:background="@color/color_white"
     android:orientation="vertical">
 
     <include layout="@layout/toolbar_navigation" />
@@ -18,7 +18,8 @@
             android:id="@+id/edittext_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:imeOptions="actionDone" />
+            android:imeOptions="actionDone"
+            android:paddingTop="8dp" />
 
     </android.support.design.widget.TextInputLayout>
 
