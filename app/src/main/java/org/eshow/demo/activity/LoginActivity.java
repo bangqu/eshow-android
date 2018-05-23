@@ -67,22 +67,22 @@ public class LoginActivity extends BaseActivity {
     private ResponseCallBack responseCallBack = new ResponseCallBack() {
         @Override
         public void onResponseSuccess(String tag, JsonObject response, String code, String msg) {
-
+            //请求成功
         }
 
         @Override
         public void onResponseNoData(String tag, String code, String msg) {
-
+            //无数据
         }
 
         @Override
         public void onResponseError(String tag, String code, String msg) {
-
+            //请求失败
         }
 
         @Override
         public void onResponseOverDue(String tag, String code, String msg) {
-
+            //用户信息过期
         }
     };
 
