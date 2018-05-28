@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bangqu.download.presenter.DownLoadImpl;
@@ -30,6 +31,7 @@ import com.google.zxing.activity.CaptureActivity;
 
 import org.eshow.demo.R;
 import org.eshow.demo.activity.BluetoothActivity;
+import org.eshow.demo.activity.ImageViewActivity;
 import org.eshow.demo.activity.LeftMenuActivity;
 import org.eshow.demo.activity.LoadingListActivity;
 import org.eshow.demo.activity.PhotosPickActivity;
@@ -75,6 +77,7 @@ public class FunctionFragment extends BaseFragment implements DownLoadImpl {
             add("扫一扫");
             add("联系人");
             add("RecyclerView");
+            add("图片加载");
         }
     };
 
@@ -135,6 +138,9 @@ public class FunctionFragment extends BaseFragment implements DownLoadImpl {
                         break;
                     case "RecyclerView":
                         goToActivity(RecyclerViewActivity.class);
+                        break;
+                    case "图片加载":
+                        goToActivity(ImageViewActivity.class);
                         break;
                 }
             }

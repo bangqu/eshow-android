@@ -8,9 +8,13 @@ public class HttpConfig {
 
     private static final String PRO_URL = "http://api.chemo.daoqun.com/";
     private static final String API_URL = "https://api.easyapi.com/";
-    public static final String QINIU_URL = "http://oyeu81n16.bkt.clouddn.com/";
+    public static final String QINIU_URL = "http://p33rsiln2.bkt.clouddn.com/";
     public static final String MSG_SYS = "https://notification-api.easyapi.com/api/notificationRecord";
     //**********************************************************
+    //获取七牛Key
+    public static final String GET_QN_KEY = PRO_URL + "qiniu/key.json";
+    //获取七牛Ｔｏｋｅｎ
+    public static final String GET_QN_TOKEN = PRO_URL + "qiniu/uptoken.json";
     //获取验证码  类型（signup注册验证，login登录验证，找回密码password，identity身份验证）
     public static final String GET_CAPTCHA = PRO_URL + "captcha/send.json";
     //用户注册

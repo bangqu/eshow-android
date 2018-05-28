@@ -11,7 +11,7 @@ public class Constants {
 
     public static final String APP = "Eshow";  //应用信息存储
     //配置数据
-    public static final int SPLASH_TIME = 1000;//启动页停留时间
+    public static final int SPLASH_TIME = 3000;//启动页停留时间
     public static final int PAGE_SIZE = 10;
     //存储数据
     public static final String LOGIN_MOBILE = "login_mobile";  //登录手机号

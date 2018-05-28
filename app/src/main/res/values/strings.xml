@@ -21,6 +21,8 @@
     <!--首页-->
     <string name="open">打开</string>
     <string name="close">关闭</string>
+    <string name="qiniu_upload">七牛上传</string>
+    <string name="reload">重新加载</string>
     <!--设置-->
     <string name="setting_account_safe">账号与安全</string>
     <string name="setting_feedback">意见反馈</string>

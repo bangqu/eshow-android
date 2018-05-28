@@ -7,22 +7,16 @@ import android.os.Looper;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.bangqu.lib.listener.RecyclerViewItemClickListener;
 import com.bangqu.lib.slipload.widget.SlipLoadLayout;
-import com.bangqu.lib.volley.ResponseCallBack;
 import com.bangqu.lib.widget.DividerItemDecoration;
 import com.bangqu.lib.widget.LoadingView;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 
 import org.eshow.demo.R;
-import org.eshow.demo.adapter.MsgSysAdapter;
 import org.eshow.demo.adapter.RecyclerAdapter;
 import org.eshow.demo.base.BaseActivity;
-import org.eshow.demo.model.MsgModel;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,29 +1,27 @@
 package org.eshow.demo.activity;
 
-import android.content.Intent;
+import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.RequiresApi;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
+import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import org.eshow.demo.R;
 import org.eshow.demo.base.BaseActivity;
 import org.eshow.demo.comm.Constants;
 import org.eshow.demo.model.WebBundle;
-
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -38,8 +36,13 @@ public class WebActivity extends BaseActivity {
     WebView webView;
     @BindView(R.id.web_progress)
     ProgressBar webProgress;
+    @BindView(R.id.web_errorMsg)
+    TextView webErrorMsg;
+    @BindView(R.id.web_error)
+    RelativeLayout webError;
 
     private WebBundle webBundle;
+    private boolean isError;
 
     @Override
     protected void setLayoutView(Bundle savedInstanceState) {
@@ -107,11 +110,52 @@ public class WebActivity extends BaseActivity {
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
             super.onPageStarted(view, url, favicon);
+            isError = false;
         }
 
         @Override
         public void onPageFinished(WebView view, String url) {
             super.onPageFinished(view, url);
+            if (isError) {
+                webView.setVisibility(View.GONE);
+                webError.setVisibility(View.VISIBLE);
+            } else {
+                webView.setVisibility(View.VISIBLE);
+                webError.setVisibility(View.GONE);
+            }
+        }
+
+        // 旧版本，会在新版本中也可能被调用，所以加上一个判断，防止重复显示
+        @Override
+        public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+            super.onReceivedError(view, errorCode, description, failingUrl);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                return;
+            }
+            // 在这里显示自定义错误页
+            isError = true;
+            webErrorMsg.setText("加载网址失败，错误码：" + errorCode);
+        }
+
+        // 新版本，只会在Android6及以上调用
+        @TargetApi(Build.VERSION_CODES.M)
+        @Override
+        public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+            super.onReceivedError(view, request, error);
+            if (request.isForMainFrame()) { // 或者： if(request.getUrl().toString() .equals(getUrl()))
+                // 在这里显示自定义错误页
+                isError = true;
+                webErrorMsg.setText("加载网址失败，错误码：" + error.getErrorCode());
+            }
+        }
+    }
+
+    @OnClick({R.id.web_reload})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.web_reload:
+                webView.reload();
+                break;
         }
     }
 
@@ -124,4 +168,15 @@ public class WebActivity extends BaseActivity {
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        if (webView != null) {
+            webView.loadDataWithBaseURL(null, "", "text/html", "utf-8", null);
+            webView.clearHistory();
+            ((ViewGroup) webView.getParent()).removeView(webView);
+            webView.destroy();
+            webView = null;
+        }
+        super.onDestroy();
+    }
 }

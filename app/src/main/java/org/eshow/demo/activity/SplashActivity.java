@@ -8,7 +8,6 @@ import android.view.WindowManager;
 import org.eshow.demo.base.BaseActivity;
 import org.eshow.demo.comm.Constants;
 
-
 public class SplashActivity extends BaseActivity {
 
     @Override
