@@ -23,6 +23,9 @@
     <string name="close">关闭</string>
     <string name="qiniu_upload">七牛上传</string>
     <string name="reload">重新加载</string>
+    <string name="hint_badge_count">请输入角标数字</string>
+    <string name="show_badge">显示</string>
+    <string name="clear_badge">清除</string>
     <!--设置-->
     <string name="setting_account_safe">账号与安全</string>
     <string name="setting_feedback">意见反馈</string>

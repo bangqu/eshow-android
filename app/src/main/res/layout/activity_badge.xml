@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_navigation" />
+
+    <TextView
+        android:id="@+id/badge_manufacturer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textColor="@color/primary_text"
+        android:textSize="14dp" />
+
+    <EditText
+        android:id="@+id/badge_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:hint="@string/hint_badge_count"
+        android:inputType="number"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:id="@+id/welcome_opera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="36dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/show_badge"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_r5_solid_red"
+            android:gravity="center"
+            android:text="@string/show_badge"
+            android:textColor="@color/color_white" />
+
+        <Button
+            android:id="@+id/clear_badge"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_marginLeft="32dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_r5_solid_gray"
+            android:gravity="center"
+            android:text="@string/clear_badge"
+            android:textColor="@color/colorPrimary" />
+    </LinearLayout>
+
+</LinearLayout>

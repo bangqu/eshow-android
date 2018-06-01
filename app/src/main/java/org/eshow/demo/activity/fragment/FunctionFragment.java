@@ -1,7 +1,10 @@
 package org.eshow.demo.activity.fragment;
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.database.Cursor;
@@ -25,11 +28,13 @@ import com.bangqu.download.service.DownloadService;
 import com.bangqu.download.utils.FileUtil;
 import com.bangqu.download.widget.DownloadDialog;
 import com.bangqu.lib.listener.DialogConfirmListener;
+import com.bangqu.lib.utils.BadgeUtils;
 import com.bangqu.lib.widget.ConfirmDialog;
 import com.bangqu.lib.widget.UpdateAppDialog;
 import com.google.zxing.activity.CaptureActivity;
 
 import org.eshow.demo.R;
+import org.eshow.demo.activity.BadgeActivity;
 import org.eshow.demo.activity.BluetoothActivity;
 import org.eshow.demo.activity.ImageViewActivity;
 import org.eshow.demo.activity.LeftMenuActivity;
@@ -44,6 +49,8 @@ import org.eshow.demo.model.WebBundle;
 import org.eshow.demo.util.LogInfo;
 
 import java.io.File;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 import butterknife.BindView;
@@ -78,6 +85,7 @@ public class FunctionFragment extends BaseFragment implements DownLoadImpl {
             add("联系人");
             add("RecyclerView");
             add("图片加载");
+            add("桌面角标");
         }
     };
 
@@ -141,6 +149,11 @@ public class FunctionFragment extends BaseFragment implements DownLoadImpl {
                         break;
                     case "图片加载":
                         goToActivity(ImageViewActivity.class);
+                        break;
+                    case "桌面角标":
+                        goToActivity(BadgeActivity.class);
+//                        showNotice();
+//                        BadgeUtils.showHuaweiBadge(getContext(), "org.eshow.demo", 10);
                         break;
                 }
             }
