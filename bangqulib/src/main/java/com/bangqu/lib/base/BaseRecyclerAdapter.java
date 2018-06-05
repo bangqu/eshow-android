@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import com.bangqu.lib.listener.RecyclerViewItemClickListener;
 
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -39,14 +40,15 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<Recycl
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         bindingViewHolder(holder, position);
-        if (recyclerViewItemClickListener != null) {
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (recyclerViewItemClickListener != null) {
                     recyclerViewItemClickListener.onItemClick(position, mData.get(position));
                 }
-            });
-        }
+                onItemClick(mData.get(position), position);
+            }
+        });
     }
 
     @Override
@@ -57,4 +59,7 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<Recycl
     protected abstract RecyclerView.ViewHolder initViewHolder(ViewGroup parent, int viewType);
 
     protected abstract void bindingViewHolder(RecyclerView.ViewHolder holder, int position);
+
+    protected void onItemClick(T value, int position) {
+    }
 }

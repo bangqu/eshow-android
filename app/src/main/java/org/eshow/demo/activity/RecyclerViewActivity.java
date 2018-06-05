@@ -7,8 +7,12 @@ import android.os.Looper;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.TextView;
 
+import com.bangqu.greendao.dao.PersonDao;
+import com.bangqu.greendao.db.DbManager;
+import com.bangqu.greendao.entity.Person;
 import com.bangqu.lib.listener.RecyclerViewItemClickListener;
 import com.bangqu.lib.slipload.widget.SlipLoadLayout;
 import com.bangqu.lib.widget.DividerItemDecoration;
@@ -23,6 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class RecyclerViewActivity extends BaseActivity {
 
@@ -38,8 +43,9 @@ public class RecyclerViewActivity extends BaseActivity {
     LoadingView slipLoadingView;
 
     private int begin = 0;
-    List<String> mList = new ArrayList<>();
+    List<Person> mList = new ArrayList<>();
     RecyclerAdapter mAdapter;
+    private PersonDao personDao;
 
     @Override
     protected void setLayoutView(Bundle savedInstanceState) {
@@ -54,22 +60,22 @@ public class RecyclerViewActivity extends BaseActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("");
         title.setText("RecycleView");
+        personDao = DbManager.getDaoSession(this).getPersonDao();
         mAdapter = new RecyclerAdapter(this, mList);
         slipRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         slipRecyclerView.setAdapter(mAdapter);
         slipRecyclerView.addItemDecoration(new DividerItemDecoration(this,
-                DividerItemDecoration.VERTICAL_LIST, 0.5f, Color.parseColor("#191919")));
+                DividerItemDecoration.VERTICAL_LIST, 4f, Color.TRANSPARENT));
         slipLoadLayout.setLoadingMore(true);
         getListData(true);
     }
+
 
     private void showList() {
         slipLoadingView.setLoadingState(LoadingView.SHOW_DATA);
         slipLoadLayout.onLoadingComplete(true);
         if (begin == 0) mList.clear();
-        for (int i = 0; i < 10; i++) {
-            mList.add("item----" + i);
-        }
+        mList.addAll(personDao.loadAll());
         mAdapter.notifyDataSetChanged();
     }
 
@@ -88,10 +94,10 @@ public class RecyclerViewActivity extends BaseActivity {
                 getListData(false);
             }
         });
-        mAdapter.setRecyclerViewItemClickListener(new RecyclerViewItemClickListener<String>() {
+        mAdapter.setRecyclerViewItemClickListener(new RecyclerViewItemClickListener<Person>() {
             @Override
-            public void onItemClick(int position, String value) {
-                showToast(value);
+            public void onItemClick(int position, Person value) {
+
             }
         });
     }
@@ -114,4 +120,24 @@ public class RecyclerViewActivity extends BaseActivity {
 //        getData(HttpConfig.MSG_SYS, params, new VolleyCallBack("msglist", responseCallBack));
     }
 
+    @OnClick({R.id.person_add, R.id.person_del, R.id.person_edit, R.id.person_search})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.person_add:
+                goToActivity(PersonActivity.class);
+                break;
+            case R.id.person_del:
+                if (mAdapter.getChoiceSet().size() > 0) {
+                    personDao.deleteByKeyInTx(mAdapter.getChoiceSet());
+                    getListData(false);
+                } else {
+                    showToast("未选择删除行");
+                }
+                break;
+            case R.id.person_edit:
+                break;
+            case R.id.person_search:
+                break;
+        }
+    }
 }

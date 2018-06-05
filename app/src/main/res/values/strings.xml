@@ -26,6 +26,12 @@
     <string name="hint_badge_count">请输入角标数字</string>
     <string name="show_badge">显示</string>
     <string name="clear_badge">清除</string>
+    <string name="db_add">增</string>
+    <string name="db_del">删</string>
+    <string name="db_edit">改</string>
+    <string name="db_search">查</string>
+    <string name="name">姓名</string>
+    <string name="age">年龄</string>
     <!--设置-->
     <string name="setting_account_safe">账号与安全</string>
     <string name="setting_feedback">意见反馈</string>

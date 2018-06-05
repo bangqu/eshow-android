@@ -3,13 +3,23 @@
     style="@style/horizontal_padding_style"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/item_selector_white">
+    android:padding="8dp">
 
     <TextView
         android:id="@+id/recycler_name"
         android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_centerInParent="true"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:textColor="@color/primary_text"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/recycler_mobile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
         android:gravity="center"
         android:textColor="@color/primary_text"
         android:textSize="14sp" />

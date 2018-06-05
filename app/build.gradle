@@ -42,4 +42,5 @@ dependencies {
     compile 'com.contrarywind:Android-PickerView:3.2.7'
     compile 'com.qiniu:qiniu-android-sdk:7.3.+'
     implementation project(':downloadlib')
+    implementation project(':greendao')
 }
