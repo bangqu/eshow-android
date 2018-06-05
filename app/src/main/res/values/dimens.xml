@@ -12,4 +12,6 @@
 
     <dimen name="gridview_width">75dp</dimen>
 
+    <dimen name="dp_70">70dp</dimen>
+
 </resources>

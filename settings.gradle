@@ -1,1 +1,2 @@
-include ':app', ':bangqulib', ':photoslib', ':bluetoothlib', ':downloadlib', ':qrcodelib', ':greendao'
+include ':app', ':bangqulib', ':photoslib', ':bluetoothlib', ':downloadlib'
+include ':recyclerviewlib', ':qrcodelib', ':greendao'

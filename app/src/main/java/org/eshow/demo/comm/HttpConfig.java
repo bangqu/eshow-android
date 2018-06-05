@@ -1,12 +1,14 @@
 package org.eshow.demo.comm;
 
+import org.eshow.demo.BuildConfig;
+
 /**
  * 创建者     rrg
  * 描述	      ${用于保存app端与服务器交互的url等常量}
  */
 public class HttpConfig {
 
-    private static final String PRO_URL = "http://api.chemo.daoqun.com/";
+    private static final String PRO_URL = BuildConfig.HTTP_BASE;
     private static final String API_URL = "https://api.easyapi.com/";
     public static final String QINIU_URL = "http://p33rsiln2.bkt.clouddn.com/";
     public static final String MSG_SYS = "https://notification-api.easyapi.com/api/notificationRecord";

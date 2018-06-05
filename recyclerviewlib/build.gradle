@@ -1,0 +1,17 @@
+apply plugin: 'com.android.library'
+
+android {
+
+    compileSdkVersion 26
+
+    defaultConfig {
+        minSdkVersion 18
+        targetSdkVersion 26
+    }
+
+}
+
+dependencies {
+    implementation 'com.android.support:design:26.1.0'
+    implementation 'com.yanzhenjie:loading:1.0.2'
+}

@@ -33,14 +33,17 @@ import com.bangqu.lib.widget.ConfirmDialog;
 import com.bangqu.lib.widget.UpdateAppDialog;
 import com.google.zxing.activity.CaptureActivity;
 
+import org.eshow.demo.BuildConfig;
 import org.eshow.demo.R;
 import org.eshow.demo.activity.BadgeActivity;
 import org.eshow.demo.activity.BluetoothActivity;
 import org.eshow.demo.activity.ImageViewActivity;
 import org.eshow.demo.activity.LeftMenuActivity;
 import org.eshow.demo.activity.LoadingListActivity;
+import org.eshow.demo.activity.MusicListActivity;
 import org.eshow.demo.activity.PhotosPickActivity;
 import org.eshow.demo.activity.RecyclerViewActivity;
+import org.eshow.demo.activity.SwipeListActivity;
 import org.eshow.demo.activity.WebActivity;
 import org.eshow.demo.adapter.FunctionAdapter;
 import org.eshow.demo.base.BaseFragment;
@@ -83,9 +86,11 @@ public class FunctionFragment extends BaseFragment implements DownLoadImpl {
             add("下载更新");
             add("扫一扫");
             add("联系人");
-            add("RecyclerView");
+            add("本地数据库");
             add("图片加载");
             add("桌面角标");
+            add("列表侧滑");
+            add("音乐列表");
         }
     };
 
@@ -127,7 +132,7 @@ public class FunctionFragment extends BaseFragment implements DownLoadImpl {
                         Bundle bundle = new Bundle();
                         WebBundle webBundle = new WebBundle();
                         webBundle.title = "百度一下";
-                        webBundle.url = "https://www.baidu.com";
+                        webBundle.url = BuildConfig.HTTP_BASE;
                         bundle.putParcelable(Constants.INTENT_OBJECT, webBundle);
                         goToActivity(WebActivity.class, bundle);
                         break;
@@ -144,7 +149,7 @@ public class FunctionFragment extends BaseFragment implements DownLoadImpl {
                         Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
                         startActivityForResult(intent, REQUEST_CONTACTS);
                         break;
-                    case "RecyclerView":
+                    case "本地数据库":
                         goToActivity(RecyclerViewActivity.class);
                         break;
                     case "图片加载":
@@ -152,8 +157,12 @@ public class FunctionFragment extends BaseFragment implements DownLoadImpl {
                         break;
                     case "桌面角标":
                         goToActivity(BadgeActivity.class);
-//                        showNotice();
-//                        BadgeUtils.showHuaweiBadge(getContext(), "org.eshow.demo", 10);
+                        break;
+                    case "列表侧滑":
+                        goToActivity(SwipeListActivity.class);
+                        break;
+                    case "音乐列表":
+                        goToActivity(MusicListActivity.class);
                         break;
                 }
             }
