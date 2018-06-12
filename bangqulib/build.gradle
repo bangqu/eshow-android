@@ -6,9 +6,7 @@ android {
     defaultConfig {
         minSdkVersion 18
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        useLibrary 'org.apache.http.legacy'
     }
 
     buildTypes {
@@ -26,4 +24,6 @@ dependencies {
     implementation 'com.github.bumptech.glide:volley-integration:4.3.0'
     implementation 'com.github.bumptech.glide:glide:4.3.0'
     implementation 'com.google.code.gson:gson:2.8.2'
+    implementation rootProject.ext.dependencies.okhttp
+    implementation rootProject.ext.dependencies.okhttp_connect
 }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.bangqu.lib.widget.TextViewPlus
+        android:id="@+id/directory_name"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="16dp"
+        android:drawableLeft="@mipmap/icon_folder"
+        android:drawablePadding="8dp"
+        android:gravity="center_vertical"
+        android:textColor="@color/primary_text"
+        android:textSize="14sp"
+        app:drawHeight="32dp"
+        app:drawWidth="40dp" />
+
+</RelativeLayout>

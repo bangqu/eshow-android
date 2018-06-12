@@ -2,6 +2,7 @@ package com.bangqu.lib.base;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,10 +44,10 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<Recycl
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                onItemClick(mData.get(position), position);
                 if (recyclerViewItemClickListener != null) {
                     recyclerViewItemClickListener.onItemClick(position, mData.get(position));
                 }
-                onItemClick(mData.get(position), position);
             }
         });
     }

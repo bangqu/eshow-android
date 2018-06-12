@@ -52,4 +52,5 @@ dependencies {
     implementation project(':downloadlib')
     implementation project(':greendao')
     implementation project(':recyclerviewlib')
+    compile 'com.github.promeg:tinypinyin:2.0.3'
 }

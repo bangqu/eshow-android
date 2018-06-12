@@ -14,8 +14,8 @@ public class DemoApplication extends EshowApplication {
         super.onCreate();
         mApplication = this;
         /*7.0以上版本调用系统文件异常FileUriExposedException*/
-        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
-        StrictMode.setVmPolicy(builder.build());
+//        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+//        StrictMode.setVmPolicy(builder.build());
     }
 
     public static DemoApplication getInstance() {

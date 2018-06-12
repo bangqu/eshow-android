@@ -35,8 +35,11 @@ import com.google.zxing.activity.CaptureActivity;
 
 import org.eshow.demo.BuildConfig;
 import org.eshow.demo.R;
+import org.eshow.demo.activity.AnimShowActivity;
 import org.eshow.demo.activity.BadgeActivity;
 import org.eshow.demo.activity.BluetoothActivity;
+import org.eshow.demo.activity.ContactsActivity;
+import org.eshow.demo.activity.DirChoiceActivity;
 import org.eshow.demo.activity.ImageViewActivity;
 import org.eshow.demo.activity.LeftMenuActivity;
 import org.eshow.demo.activity.LoadingListActivity;
@@ -91,6 +94,8 @@ public class FunctionFragment extends BaseFragment implements DownLoadImpl {
             add("桌面角标");
             add("列表侧滑");
             add("音乐列表");
+            add("动画演示");
+            add("目录选择");
         }
     };
 
@@ -146,8 +151,9 @@ public class FunctionFragment extends BaseFragment implements DownLoadImpl {
                         goToActivityForResult(CaptureActivity.class, REQUEST_QRCODE_SCANNING);
                         break;
                     case "联系人":
-                        Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
-                        startActivityForResult(intent, REQUEST_CONTACTS);
+                        goToActivity(ContactsActivity.class);
+//                        Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+//                        startActivityForResult(intent, REQUEST_CONTACTS);
                         break;
                     case "本地数据库":
                         goToActivity(RecyclerViewActivity.class);
@@ -163,6 +169,12 @@ public class FunctionFragment extends BaseFragment implements DownLoadImpl {
                         break;
                     case "音乐列表":
                         goToActivity(MusicListActivity.class);
+                        break;
+                    case "动画演示":
+                        goToActivity(AnimShowActivity.class);
+                        break;
+                    case "目录选择":
+                        goToActivity(DirChoiceActivity.class);
                         break;
                 }
             }

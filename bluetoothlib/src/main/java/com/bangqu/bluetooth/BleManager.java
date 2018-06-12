@@ -28,6 +28,12 @@ import java.util.Set;
  */
 
 public class BleManager {
+
+    public static enum BLE_STATE {
+        BLE_ENABLE, BLE_DISABLE, BLE_SCANNING, BLE_SCAN_COMPLETE, BLE_CONNECTING, BLE_CONNECTED, BLE_DISCONNECT
+    }
+
+    private BLE_STATE bleState;
     /*BLE蓝牙设备服务UUID*/
     private static final String SERVICE_UUID = "0000fff0-0000-1000-8000-00805f9b34fb";
     //蓝牙扫描持续时间
@@ -45,7 +51,6 @@ public class BleManager {
     private BleListener bleListener;
     //在UI主线程中进行接口回调
     private Handler mHandler = new Handler(Looper.getMainLooper());
-    private boolean isScanning = false;
     private String autoContentDevice;//自动连接设备名称
 
     public void setAutoContentDevice(String autoContentDevice) {
@@ -83,14 +88,15 @@ public class BleManager {
 
     public void connectBleDevice(BluetoothDevice mTargetDevice) {
         if (bleListener != null) bleListener.onConnect();
+        bleState = BLE_STATE.BLE_CONNECTING;
         mBluetoothGatt = mTargetDevice.connectGatt(mContext, true, bluetoothGattCallback);
     }
 
     public void startBleScan() {
-        if (isScanning) return;
+        if (bleState == BLE_STATE.BLE_SCANNING) return;
         if (bleListener != null) bleListener.onStartLeScan();
         bluetoothDevices.clear();
-        isScanning = true;
+        bleState = BLE_STATE.BLE_SCANNING;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             List<ScanFilter> bleScanFilters = new ArrayList<>();
             bleScanFilters.add(
@@ -110,6 +116,7 @@ public class BleManager {
                             connectBleDevice(result.getDevice());
                         }
                     }
+                    bleState = BLE_STATE.BLE_SCAN_COMPLETE;
                 }
 
                 @Override
@@ -130,7 +137,7 @@ public class BleManager {
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (isScanning) {
+                if (bleState == BLE_STATE.BLE_SCANNING) {
                     stopBleScan(true);
                 }
             }
@@ -138,8 +145,8 @@ public class BleManager {
     }
 
     private void stopBleScan(boolean isComplete) {
-        if (isScanning) {
-            isScanning = false;
+        if (bleState == BLE_STATE.BLE_SCANNING) {
+            bleState = BLE_STATE.BLE_SCAN_COMPLETE;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 ScanCallback scanCallback = new ScanCallback() {
                     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -154,6 +161,7 @@ public class BleManager {
                                 connectBleDevice(result.getDevice());
                             }
                         }
+                        bleState = BLE_STATE.BLE_SCAN_COMPLETE;
                     }
 
                     @Override
@@ -182,6 +190,7 @@ public class BleManager {
             super.onConnectionStateChange(gatt, status, newState);
             switch (newState) {//newState顾名思义，表示当前最新状态。status可以获取之前的状态。
                 case BluetoothProfile.STATE_CONNECTED:
+                    bleState = BLE_STATE.BLE_CONNECTED;
                     //这里表示已经成功连接，如果成功连接，我们就会执行discoverServices()方法去发现设备所包含的服务
                     mBluetoothGatt = gatt;
                     if (bleListener != null) {
@@ -195,6 +204,7 @@ public class BleManager {
                     gatt.discoverServices();
                     break;
                 case BluetoothProfile.STATE_DISCONNECTED:
+                    bleState = BLE_STATE.BLE_DISCONNECT;
                     //表示gatt连接已经断开。
                     if (bleListener != null) {
                         mHandler.post(new Runnable() {

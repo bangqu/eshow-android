@@ -32,6 +32,10 @@
     <string name="db_search">查</string>
     <string name="name">姓名</string>
     <string name="age">年龄</string>
+    <string name="anim_translate">平移</string>
+    <string name="anim_scale">缩放</string>
+    <string name="anim_rotate">旋转</string>
+    <string name="anim_alpha">透明</string>
     <!--设置-->
     <string name="setting_account_safe">账号与安全</string>
     <string name="setting_feedback">意见反馈</string>

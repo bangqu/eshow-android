@@ -31,6 +31,10 @@ public class AppUtils {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dipValue, context.getResources().getDisplayMetrics());
     }
 
+    public static int sp2px(Context context, float dipValue) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, dipValue, context.getResources().getDisplayMetrics());
+    }
+
     //跳转到拨号界面，同时传递电话号码
     public static void dialPhone(Context context, String phone) {
         if (!phone.startsWith("tel:")) {
